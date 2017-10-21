@@ -1,0 +1,36 @@
+Creando Store Procedure
+Debajo de Cotizacion :-----------------------------
+Registrar_Cotizacion()
+Consultar_Cotizacion_x_Tipo()
+Actualizar_Contador_Respuestas()
+Actualizar_Uso_Cotizacion()
+
+Debajo Detalle de Respuesta:-----------------------
+Registrar_Respuesta_Cotizacion()
+Consultar_Respuesta_x_Tecnico()
+
+Debajo de Usuarios:--------------------------------
+Registrar_Usuario()
+Actualizar_Usuario()
+Consultar_Usuario()
+
+Debajo de Tecnicos:---------------------------------
+Buscar_Tecnicos_x_Parametros
+Buscar_Tecnicos_x_Categorias
+Buscar_Tecnico_x_Codigo
+
+Debajo de Oficios:-------------------------
+List_Oficios
+
+Debajo de Especialidades-------------------
+List_Especialidades
+
+Debajo de Distrito------------------------
+List_Distritos
+
+Debajo de Contrato
+Buscar_Cotizacion_x_Tecnico
+Buscar_Costo_Respuesta_x_Tecnico
+Registrar_Contrato
+Actualizar_Estado_Contrato
+Registrar_Calificacion_Contrato
