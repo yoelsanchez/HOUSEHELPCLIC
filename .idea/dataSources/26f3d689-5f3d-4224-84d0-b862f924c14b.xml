@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="BD-HOUSECLIC@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bd-houseclic">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="test"/>
+    <table id="7" parent="2" name="answer"/>
+    <table id="8" parent="2" name="client"/>
+    <table id="9" parent="2" name="contract"/>
+    <table id="10" parent="2" name="detailschedule"/>
+    <table id="11" parent="2" name="district"/>
+    <table id="12" parent="2" name="especialty"/>
+    <table id="13" parent="2" name="job"/>
+    <table id="14" parent="2" name="quotation"/>
+    <table id="15" parent="2" name="schedule"/>
+    <table id="16" parent="2" name="technician"/>
+    <table id="17" parent="2" name="typequotation"/>
+    <column id="18" parent="7" name="CodeAnswer">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="7" name="Technician_CodeTechnician">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="7" name="CodeClient">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="7" name="DateAnswer">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="7" name="CommentAnswer">
+      <Position>5</Position>
+      <DataType>tinytext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="7" name="PriceAnswer">
+      <Position>6</Position>
+      <DataType>decimal(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="7" name="fk_Answer_Technician1_idx">
+      <ColNames>Technician_CodeTechnician</ColNames>
+    </index>
+    <key id="25" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeAnswer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="7" name="fk_Answer_Technician1">
+      <ColNames>Technician_CodeTechnician</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>technician</RefTableName>
+      <RefColNames>CodeTechnician</RefColNames>
+    </foreign-key>
+    <column id="27" parent="8" name="CodeClient">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="8" name="District_CodeDistrict">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="8" name="Contract_CodeContract">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="8" name="TypeQuotation_CodeTypeQuotation">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="8" name="NameClient">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="8" name="LastNameClient">
+      <Position>6</Position>
+      <DataType>varchar(35)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="8" name="AgeClient">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="8" name="CellPhoneClient">
+      <Position>8</Position>
+      <DataType>char(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="8" name="AddressClient">
+      <Position>9</Position>
+      <DataType>tinytext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="8" name="PasswordClient">
+      <Position>10</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="8" name="PhotoClient">
+      <Position>11</Position>
+      <DataType>tinytext|0</DataType>
+    </column>
+    <index id="38" parent="8" name="fk_Client_Contract1_idx">
+      <ColNames>Contract_CodeContract</ColNames>
+    </index>
+    <index id="39" parent="8" name="fk_Client_District1_idx">
+      <ColNames>District_CodeDistrict</ColNames>
+    </index>
+    <index id="40" parent="8" name="fk_Client_TypeQuotation1_idx">
+      <ColNames>TypeQuotation_CodeTypeQuotation</ColNames>
+    </index>
+    <key id="41" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeClient</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="42" parent="8" name="fk_Client_District1">
+      <ColNames>District_CodeDistrict</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>district</RefTableName>
+      <RefColNames>CodeDistrict</RefColNames>
+    </foreign-key>
+    <foreign-key id="43" parent="8" name="fk_Client_Contract1">
+      <ColNames>Contract_CodeContract</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>contract</RefTableName>
+      <RefColNames>CodeContract</RefColNames>
+    </foreign-key>
+    <foreign-key id="44" parent="8" name="fk_Client_TypeQuotation1">
+      <ColNames>TypeQuotation_CodeTypeQuotation</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>typequotation</RefTableName>
+      <RefColNames>CodeTypeQuotation</RefColNames>
+    </foreign-key>
+    <column id="45" parent="9" name="CodeContract">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="9" name="DateContract">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="9" name="TotalCostContract">
+      <Position>3</Position>
+      <DataType>decimal(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="9" name="StateContract">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="9" name="AssistanceReason">
+      <Position>5</Position>
+      <DataType>tinytext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="9" name="RatingScore">
+      <Position>6</Position>
+      <DataType>decimal(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="9" name="RatingState">
+      <Position>7</Position>
+      <DataType>decimal(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="9" name="RatingCommentary">
+      <Position>8</Position>
+      <DataType>tinytext|0</DataType>
+    </column>
+    <key id="53" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeContract</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="10" name="CodeDetailSchedule">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="10" name="StartSchedule">
+      <Position>2</Position>
+      <DataType>char(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="10" name="EndSchedule">
+      <Position>3</Position>
+      <DataType>char(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="57" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeDetailSchedule</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="11" name="CodeDistrict">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="59" parent="11" name="NameDistrict">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="60" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeDistrict</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="61" parent="12" name="CodeSpecialty">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="12" name="Job_CodeJob">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="12" name="Technician_CodeTechnician">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="12" name="NameSpecialty">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="12" name="DescriptionSpecialty">
+      <Position>5</Position>
+      <DataType>tinytext|0</DataType>
+    </column>
+    <index id="66" parent="12" name="fk_Especialty_Job1_idx">
+      <ColNames>Job_CodeJob</ColNames>
+    </index>
+    <index id="67" parent="12" name="fk_Especialty_Technician1_idx">
+      <ColNames>Technician_CodeTechnician</ColNames>
+    </index>
+    <key id="68" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeSpecialty</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="69" parent="12" name="fk_Especialty_Job1">
+      <ColNames>Job_CodeJob</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>job</RefTableName>
+      <RefColNames>CodeJob</RefColNames>
+    </foreign-key>
+    <foreign-key id="70" parent="12" name="fk_Especialty_Technician1">
+      <ColNames>Technician_CodeTechnician</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>technician</RefTableName>
+      <RefColNames>CodeTechnician</RefColNames>
+    </foreign-key>
+    <column id="71" parent="13" name="CodeJob">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="13" name="NameJob">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="73" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeJob</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="74" parent="14" name="CodeQuotation">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="14" name="Answer_CodeAnswer">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="14" name="TitleSubject">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="14" name="DetailSubject">
+      <Position>4</Position>
+      <DataType>tinytext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="14" name="PhotoSubject">
+      <Position>5</Position>
+      <DataType>tinytext|0</DataType>
+    </column>
+    <column id="79" parent="14" name="VisitCost">
+      <Position>6</Position>
+      <DataType>decimal(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="14" name="AddressSubject">
+      <Position>7</Position>
+      <DataType>tinytext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="14" name="StartSubject">
+      <Position>8</Position>
+      <DataType>char(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="14" name="EndSubject">
+      <Position>9</Position>
+      <DataType>char(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="14" name="DateSubject">
+      <Position>10</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="14" name="StateQuotation">
+      <Position>11</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="14" name="CountAnswerQuotation">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="86" parent="14" name="fk_Quotation_Answer1_idx">
+      <ColNames>Answer_CodeAnswer</ColNames>
+    </index>
+    <key id="87" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeQuotation</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="88" parent="14" name="fk_Quotation_Answer1">
+      <ColNames>Answer_CodeAnswer</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>answer</RefTableName>
+      <RefColNames>CodeAnswer</RefColNames>
+    </foreign-key>
+    <column id="89" parent="15" name="CodeSchedule">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="15" name="DetailSchedule_CodeDetailSchedule">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="15" name="FrequencySchedule">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="92" parent="15" name="DaysSchedule">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="93" parent="15" name="fk_Schedule_DetailSchedule1_idx">
+      <ColNames>DetailSchedule_CodeDetailSchedule</ColNames>
+    </index>
+    <key id="94" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeSchedule</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="95" parent="15" name="fk_Schedule_DetailSchedule1">
+      <ColNames>DetailSchedule_CodeDetailSchedule</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>detailschedule</RefTableName>
+      <RefColNames>CodeDetailSchedule</RefColNames>
+    </foreign-key>
+    <column id="96" parent="16" name="CodeTechnician">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="16" name="District_CodeDistrict">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="16" name="DetailSchedule_CodeDetailSchedule">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="16" name="Contract_CodeContract">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="16" name="TypeQuotation_CodeTypeQuotation">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="16" name="NameTech">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="16" name="LastNameTech">
+      <Position>7</Position>
+      <DataType>varchar(35)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="16" name="DniTech">
+      <Position>8</Position>
+      <DataType>char(8)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="104" parent="16" name="AgeTech">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="16" name="CellPhoneTech">
+      <Position>10</Position>
+      <DataType>char(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="106" parent="16" name="DescriptionTech">
+      <Position>11</Position>
+      <DataType>tinytext|0</DataType>
+    </column>
+    <column id="107" parent="16" name="PhotoTech">
+      <Position>12</Position>
+      <DataType>tinytext|0</DataType>
+    </column>
+    <column id="108" parent="16" name="PasswordTech">
+      <Position>13</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="109" parent="16" name="fk_Technician_Contract1_idx">
+      <ColNames>Contract_CodeContract</ColNames>
+    </index>
+    <index id="110" parent="16" name="fk_Technician_DetailSchedule1_idx">
+      <ColNames>DetailSchedule_CodeDetailSchedule</ColNames>
+    </index>
+    <index id="111" parent="16" name="fk_Technician_District_idx">
+      <ColNames>District_CodeDistrict</ColNames>
+    </index>
+    <index id="112" parent="16" name="fk_Technician_TypeQuotation1_idx">
+      <ColNames>TypeQuotation_CodeTypeQuotation</ColNames>
+    </index>
+    <key id="113" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeTechnician</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="114" parent="16" name="fk_Technician_District">
+      <ColNames>District_CodeDistrict</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>district</RefTableName>
+      <RefColNames>CodeDistrict</RefColNames>
+    </foreign-key>
+    <foreign-key id="115" parent="16" name="fk_Technician_DetailSchedule1">
+      <ColNames>DetailSchedule_CodeDetailSchedule</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>detailschedule</RefTableName>
+      <RefColNames>CodeDetailSchedule</RefColNames>
+    </foreign-key>
+    <foreign-key id="116" parent="16" name="fk_Technician_Contract1">
+      <ColNames>Contract_CodeContract</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>contract</RefTableName>
+      <RefColNames>CodeContract</RefColNames>
+    </foreign-key>
+    <foreign-key id="117" parent="16" name="fk_Technician_TypeQuotation1">
+      <ColNames>TypeQuotation_CodeTypeQuotation</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>typequotation</RefTableName>
+      <RefColNames>CodeTypeQuotation</RefColNames>
+    </foreign-key>
+    <column id="118" parent="17" name="CodeTypeQuotation">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="17" name="Quotation_CodeQuotation">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="17" name="NameTypeQ">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="121" parent="17" name="DescriptionTypeQ">
+      <Position>4</Position>
+      <DataType>tinytext|0</DataType>
+    </column>
+    <index id="122" parent="17" name="fk_TypeQuotation_Quotation1_idx">
+      <ColNames>Quotation_CodeQuotation</ColNames>
+    </index>
+    <key id="123" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CodeTypeQuotation</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="124" parent="17" name="fk_TypeQuotation_Quotation1">
+      <ColNames>Quotation_CodeQuotation</ColNames>
+      <RefSchemaName>bd-houseclic</RefSchemaName>
+      <RefTableName>quotation</RefTableName>
+      <RefColNames>CodeQuotation</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
