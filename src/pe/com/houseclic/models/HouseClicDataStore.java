@@ -1,6 +1,5 @@
 package pe.com.houseclic.models;
 
-import java.sql.ClientInfoStatus;
 import java.sql.Connection;
 import java.util.List;
 
@@ -51,7 +50,7 @@ public class HouseClicDataStore {
     private EspecialtiesEntity getEspecialtiesEntity() {
         if(especialtiesEntity == null) {
             especialtiesEntity = new EspecialtiesEntity();
-            especialtiesEntity.setConnection(getConnection());
+            especialtiesEntity.setConnection(connection);
         }
         return especialtiesEntity;
     }
@@ -59,7 +58,7 @@ public class HouseClicDataStore {
     private TechnicianEntity getTechnicianEntity() {
         if(technicianEntity == null) {
             technicianEntity = new TechnicianEntity();
-            technicianEntity.setConnection(getConnection());
+            technicianEntity.setConnection(connection);
         }
         return technicianEntity;
     }
@@ -130,10 +129,10 @@ public class HouseClicDataStore {
     public Especialty findEspeciltyById(String id) {
         return getConnection() == null ?
                 null :
-                getEspecialtiesEntity().findById(id, getEspecialtiesEntity(), getTechnicianEntity());
+                getEspecialtiesEntity().findById(id, getJobsEntity(), getTechnicianEntity());
     }
     public List<Especialty> findAllEspecialties (){
-        return getConnection() == null ? null : getEspecialtiesEntity().findAll();
+        return getConnection() == null ? null : getEspecialtiesEntity().findAll(getEspecialtiesEntity());
     }
 
     public Especialty createEspecialty (String name){
