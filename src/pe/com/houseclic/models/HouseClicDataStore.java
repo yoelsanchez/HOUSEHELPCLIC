@@ -1,5 +1,6 @@
 package pe.com.houseclic.models;
 
+import java.sql.ClientInfoStatus;
 import java.sql.Connection;
 import java.util.List;
 
@@ -7,6 +8,17 @@ public class HouseClicDataStore {
     private Connection connection;
     private DistrictsEntity districtsEntity;
     private JobsEntity jobsEntity;
+    private EspecialtiesEntity especialtiesEntity;
+    private TechnicianEntity technicianEntity;
+    private DetailScheduleEntity detailScheduleEntity; //FALTA
+    private ScheduleEntity scheduleEntity; //FALTA
+    private AnswerEntity answerEntity; //FALTA
+    private ContractEntity contractEntity; //FALTA
+    private ClientEntity clientEntity; //FALTA
+    private QuotationEntity quotationEntity; //FALTA
+    private TypeQuotationEntity typeQuotationEntity; //FALTA
+
+//***********************************************************************************************
 
     public HouseClicDataStore (Connection connection) {
         this.setConnection(connection);
@@ -17,6 +29,8 @@ public class HouseClicDataStore {
     public void setConnection(Connection connection) {
         this.connection = connection;
     }
+
+//***********************************************************************************************
 
     private DistrictsEntity getDistrictsEntity() {
         if(districtsEntity == null) {
@@ -33,6 +47,24 @@ public class HouseClicDataStore {
         }
         return jobsEntity;
     }
+
+    private EspecialtiesEntity getEspecialtiesEntity() {
+        if(especialtiesEntity == null) {
+            especialtiesEntity = new EspecialtiesEntity();
+            especialtiesEntity.setConnection(getConnection());
+        }
+        return especialtiesEntity;
+    }
+
+    private TechnicianEntity getTechnicianEntity() {
+        if(technicianEntity == null) {
+            technicianEntity = new TechnicianEntity();
+            technicianEntity.setConnection(getConnection());
+        }
+        return technicianEntity;
+    }
+
+//****************************************************************************************
 
     // DISTRITO - DISTRICT
 
@@ -63,7 +95,7 @@ public class HouseClicDataStore {
                 getDistrictsEntity().update(district);
     }
 
-    // TRABAJO - JOB
+    // TRABAJO - JOB ******************************************************************************
 
     public Job findJobById(int id) {
         return getConnection() == null ?
@@ -92,3 +124,63 @@ public class HouseClicDataStore {
                 getJobsEntity().update(job);
     }
 }
+
+    // ESPECIALIDAD - ESPECIALTIES********************************************************************
+
+    public Especialty findEspeciltyById(String id) {
+        return getConnection() == null ?
+                null :
+                getEspecialtiesEntity().findById(id, getEspecialtiesEntity(), getTechnicianEntity());
+    }
+    public List<Especialty> findAllEspecialties (){
+        return getConnection() == null ? null : getEspecialtiesEntity().findAll();
+    }
+
+    public Especialty createEspecialty (String name){
+        return getConnection() == null ?
+                null :
+                getEspecialtiesEntity().create(name);
+    }
+
+    public boolean eraseEspecialty (Especialty especialty) {
+        return getConnection() == null ?
+                false :
+                getEspecialtiesEntity().erase(especialty);
+    }
+
+    public boolean updateEspecialty(Especialty especialty) {
+        return getConnection() == null ?
+                false :
+                getEspecialtiesEntity().update(especialty);
+    }
+}
+
+// TECNICO - TECHNICIAN ****************************************************************
+
+public Technician findTechnicianById(String id) {
+        return getConnection() == null ?
+        null :
+        getTechnicianEntity().findById(id, getJobsEntity, getTechnicianEntity());
+        }
+public List<Especialty> findAllEspecialties (){
+        return getConnection() == null ? null : getEspecialtiesEntity().findAll();
+        }
+
+public TechnicianEntity createEspecialty (String name){
+        return getConnection() == null ?
+        null :
+        getEspecialtiesEntity().create(name);
+        }
+
+public boolean eraseEspecialty (TechnicianEntity especialty) {
+        return getConnection() == null ?
+        false :
+        getEspecialtiesEntity().erase(especialty);
+        }
+
+public boolean updateEspecialty(Especialty especialty) {
+        return getConnection() == null ?
+        false :
+        getEspecialtiesEntity().update(especialty);
+        }
+        }

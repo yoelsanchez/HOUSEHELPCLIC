@@ -1,4 +1,4 @@
 package pe.com.houseclic.models;
 
-public class Schedule {
+public class TechnicianEntity {
 }
