@@ -1,0 +1,108 @@
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators >
+    <field name ="codeClient">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Client need 10 Digital Exactly
+                Example : I000000001</message>
+        </field-validator>
+    </field>
+
+    <field name ="codeDistrict">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">3</param>
+            <param name="maxLength">3</param>
+            <param name="trim">true</param>
+            <message>The Code District need 3 Digital Exactly
+                Example : D01 TO D42 </message>
+        </field-validator>
+    </field>
+
+    <field name="nameClient">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Name Client</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">3</param>
+            <param name="maxLength">30</param>
+            <param name="trim">true</param>
+            <message>The name Client needs to have at least 3 to 30 max character</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">/^[A-z]+$</param>
+            <message>Only Alphabetic</message>
+        </field-validator>
+    </field>
+
+    <field name ="lastNameClient">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Last Name Client</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">3</param>
+            <param name="maxLength">35</param>
+            <param name="trim">true</param>
+            <message>The name Client needs to have at least 3 to 35 max character</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">/^[A-z]+$</param>
+            <message>Only Alphabetic</message>
+        </field-validator>
+    </field>
+
+
+    <field name="ageClient">
+        <field-validator type="int">
+            <param name="min">1</param>
+            <param name="max">2</param>
+            <message>You Should add any Age between 1 Digital or 2 Digital</message>
+        </field-validator>
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Age Client</message>
+        </field-validator>
+</field>
+
+
+    <field name="cellPhoneClient">
+        <field-validator type="stringlength">
+            <param name="minLength">9</param>
+            <param name="maxLength">9</param>
+            <param name="trim">true</param>
+            <message>You Should enter exactly 9 Digital</message>
+        </field-validator>
+        <field-validator type="requiredstring">
+            <message>You must enter a value for CellPhoneClient Client</message>
+        </field-validator>
+    </field>
+
+
+    <field name="addressClient">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Address Client</message>
+        </field-validator>
+    </field>
+
+
+    <field name="passwordClient">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Password</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">5</param>
+            <param name="maxLength">30</param>
+            <param name="trim">true</param>
+            <message>The Password needs to have at least 5 to 30 max character</message>
+        </field-validator>
+    </field>
+
+</validators>

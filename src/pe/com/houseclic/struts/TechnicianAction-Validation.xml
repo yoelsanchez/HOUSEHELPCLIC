@@ -1,0 +1,30 @@
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="codeTechnician">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Technician need 10 Digital Exactly
+                Example : T000000001</message>
+        </field-validator>
+    </field>
+
+    <field name="passwordTech">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Password</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">5</param>
+            <param name="maxLength">30</param>
+            <param name="trim">true</param>
+            <message>The Password needs to have at least 5 to 30 max character</message>
+        </field-validator>
+    </field>
+
+</validators>

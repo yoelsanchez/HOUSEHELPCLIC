@@ -1,0 +1,131 @@
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators >
+    <field name ="codeContract">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Contract need 10 Digital Exactly
+                Example : C000000001</message>
+        </field-validator>
+    </field>
+
+    <field name ="codeClient">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Client need 10 Digital Exactly
+                Example : I000000001</message>
+        </field-validator>
+    </field>
+
+    <field name ="codeTechnician">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Technician need 10 Digital Exactly
+                Example : T000000001</message>
+        </field-validator>
+    </field>
+
+
+    <field name ="codeQuotation">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Quotation need 10 Digital Exactly
+                Example : Q000000001</message>
+        </field-validator>
+    </field>
+
+
+    <field name="dateContract">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Date Subject</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>You Should enter 10 Characters exactly , For example 11/11/2017</message>
+        </field-validator>
+
+    </field>
+
+        <field name="totalCostContract">
+            <field-validator type="required">
+                <message>You need a Price Total </message>
+            </field-validator>
+        </field>
+
+    <field name="stateContract">
+        <field-validator type="requiredstring">
+            <message>You must enter the word WAIT or READY</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">4</param>
+            <param name="maxLength">5</param>
+            <param name="trim">true</param>
+            <message>The Word WAIT have 4 characters
+                and READY have 5 characters</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">/^[A-z]+$</param>
+            <message>Only Alphabetic</message>
+        </field-validator>
+    </field>
+
+    <field name="assistanceReason">
+        <field-validator type="requiredstring">
+            <message>You must enter a text for Assistance Reason</message>
+        </field-validator>
+    </field>
+
+    <field name="ratingScore">
+        <field-validator type="required">
+            <message>You need a Rating Score </message>
+        </field-validator>
+    </field>
+
+
+    <field name="ratingState">
+        <field-validator type="requiredstring">
+            <message>You must enter the word WAIT or READY</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">4</param>
+            <param name="maxLength">15</param>
+            <param name="trim">true</param>
+            <message>The Word WAIT have 4 characters
+                and READY have 5 characters</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">/^[A-z]+$</param>
+            <message>Only Alphabetic</message>
+        </field-validator>
+    </field>
+
+    <field name="ratingCommentary">
+        <field-validator type="requiredstring">
+            <message>You must enter a text for Rating Commentary</message>
+        </field-validator>
+    </field>
+
+</validators>

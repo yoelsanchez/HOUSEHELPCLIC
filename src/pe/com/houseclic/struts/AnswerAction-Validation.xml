@@ -1,0 +1,83 @@
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+    <field name="codeAnswer">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Answer need 10 Digital Exactly
+                Example : A000000001 </message>
+        </field-validator>
+    </field>
+
+
+    <field name="codeTechnician">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Technician need 10 Digital Exactly
+                Example : T000000001 </message>
+        </field-validator>
+    </field>
+
+    <field name="codeQuotation">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Quotation need 10 Digital Exactly
+                Example : Q000000001 </message>
+        </field-validator>
+    </field>
+
+    <field name="codeClient">
+        <field-validator type="requiredstring">
+            <message>You must enter a Code </message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>The Code Client need 10 Digital Exactly
+                Example : I000000001 </message>
+        </field-validator>
+    </field>
+
+    <field name="dateAnswer">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Date Subject</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">10</param>
+            <param name="maxLength">10</param>
+            <param name="trim">true</param>
+            <message>You Should enter 10 Characters exactly , For example 11/11/2017</message>
+        </field-validator>
+    </field>
+
+    <field name="commentAnswer">
+        <field-validator type="requiredstring">
+            <message>You must enter a value for Comment Answer</message>
+        </field-validator>
+    </field>
+
+
+    <field name="priceAnswer">
+        <field-validator type="required">
+            <message>You need a Price Answer</message>
+        </field-validator>
+    </field>
+</validators>
