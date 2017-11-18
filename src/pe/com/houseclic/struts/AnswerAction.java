@@ -71,6 +71,6 @@ public class AnswerAction extends ActionSupport {
     }
 
     public String execute(){
-        return "successAnswer";
+        return "success";
     }
 }

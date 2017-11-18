@@ -109,6 +109,6 @@ public class ContractAction extends ActionSupport {
     }
 
     public String execute(){
-        return "successContract";
+        return "success";
     }
 }

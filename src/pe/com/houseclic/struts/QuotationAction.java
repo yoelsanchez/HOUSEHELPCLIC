@@ -124,6 +124,6 @@ public class QuotationAction extends ActionSupport {
         CountAnswerQuotation = countAnswerQuotation;
     }
     public String execute(){
-        return "successQuotation";
+        return "success";
     }
 }

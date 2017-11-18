@@ -82,6 +82,7 @@ public class ClientAction extends ActionSupport {
     }
 
     public String execute(){
-        return "successClient";
+        return "success";
     }
+
 }

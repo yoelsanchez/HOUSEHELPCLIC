@@ -95,6 +95,6 @@ public class TechnicianAction extends ActionSupport {
         PasswordTech = passwordTech;
     }
     public String execute(){
-        return "successTechnician";
+        return "success";
     }
 }
