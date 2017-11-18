@@ -5,41 +5,4 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-<package name="default" extends="struts-default">
-    <action name="index">
-        <result>CreateClient.jsp</result>
-    </action>
-
-    
-    <action name="client" class="pe.com.houseclic.struts.ClientAction">
-        <result name="success">Congratulations.jsp</result>
-        <result name="input">CreateClient.jsp</result>
-    </action>
-
-
-    <action name="quotation" class="pe.com.houseclic.struts.QuotationAction">
-        <result name="success">Congratulations.jsp</result>
-        <result name="input">CreateQuotation.jsp</result>
-    </action>
-
-
-    <action name="contract" class="pe.com.houseclic.struts.ContractAction">
-        <result name="success">Congratulations.jsp</result>
-        <result name="input">CreateContract.jsp</result>
-    </action>
-
-
-    <action name="answer" class="pe.com.houseclic.struts.AnswerAction">
-        <result name="success">Congratulations.jsp</result>
-        <result name="input">CreateAnswer.jsp</result>
-    </action>
-
-
-    <action name="technician" class="pe.com.houseclic.struts.TechnicianAction">
-        <result name="success">Congratulations.jsp</result>
-        <result name="input">LoginTechnician.jsp</result>
-    </action>
-
-</package>
-
 </struts>

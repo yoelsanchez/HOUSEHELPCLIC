@@ -53,8 +53,8 @@ public class Especialty {
         Especialty especialty = new Especialty();
         try {
                     especialty.setId(resultSet.getInt("CodeSpecialty"))
-                    .setJob(JobsEntity.findById(ResultSet.getInt("job_id")));
-                    .setTechnician(TechnicianEntity.findById(ResultSet.getInt("technician_id")));
+                    .setJob(JobsEntity.findById(ResultSet.getInt("CodeJob")));
+                    .setTechnician(TechnicianEntity.findById(ResultSet.getInt("CodeTechnician")));
                     .setName(resultSet.getString("NameSpecialty"));
                     .setDescription(resultSet.getString("DescriptionSpecialty"));
         } catch (SQLException e) {

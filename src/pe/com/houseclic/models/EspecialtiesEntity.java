@@ -9,33 +9,17 @@ public class EspecialtiesEntity extends BaseEntity {
 
 
     public EspecialtiesEntity() {
+        super();
         setTableName("Especialties");
     }
 
-//********************************************************************
+    //***********************************************************************************************************
 
-    public Especialty findById(String id, JobsEntity jobsEntity, TechnicianEntity technicianEntity) {
-        return findByCriteria(String.format(
-                "CodeSpecialty = '%s'", id), jobsEntity, technicianEntity).get(0);
+    public List<Especialty> findAll(JobsEntity jobsEntity) {
+        return findByCriteria("",  jobsEntity);
     }
 
-    public Especialty findByName(String name, JobsEntity jobsEntity, TechnicianEntity technicianEntity) {
-        return findByCriteria(String.format(
-                "NameSpecialty = '%s'", name), jobsEntity, technicianEntity).get(0);
-    }
-
-    public Especialty findByName(String description, JobsEntity jobsEntity, TechnicianEntity technicianEntity) {
-        return findByCriteria(String.format(
-                "DescriptionSpecialty = '%s'", description), jobsEntity, technicianEntity).get(0);
-    }
-
-//*************************************************************************
-
-    public List<Especialty> findAll(EspecialtiesEntity especialtiesEntity) {
-        return findByCriteria("", especialtiesEntity);
-    }
-
-    private List<Country> findByCriteria(String criteria, RegionsEntity regionsEntity) {
+    private List<Especialty> findByCriteria(String criteria, JobsEntity jobsEntity) {
         try {
 
             ResultSet rs = getConnection()
@@ -46,10 +30,10 @@ public class EspecialtiesEntity extends BaseEntity {
                                     getBaseStatement()
                                             .concat(" WHERE ")
                                             .concat(criteria));
-            List<Country> countries = new ArrayList<>();
+            List<Especialty> especialties = new ArrayList<>();
             while (rs.next())
-                countries.add(Country.from(rs, regionsEntity));
-            return countries;
+                especialties.add(Especialty.from(rs, jobsEntity));
+            return especialties;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,28 +42,28 @@ public class EspecialtiesEntity extends BaseEntity {
     }
 
 
-    public boolean create(Country country) {
+    public boolean create(Especialty especialty) {
         return executeUpdate(String.format(
-                "INSERT INTO %s(country_id, country_name, region_id) VALUES ('%s', '%s', %d)",
-                getTableName(), country.getId(), country.getName(), country.getRegion().getId()));
+                "INSERT INTO %s(CodeSpecialty, CodeJob, CodeTechnician, NameSpecialty, DescriptionSpecialty) VALUES ('%s', %d, %d, '%s', '%s')",
+                getTableName(), especialty.getId(), especialty.getJob(), especialty.getTechnician(), especialty.getName(), especialty.getDescription()));
     }
 
-    public boolean create(String id, String name, Region region) {
-        return create(new Country(id, name, region));
+    public boolean create(int id, Job job, Technician technician, String name, String description) {
+        return create(new Especialty(id, job, technician, name, description));
     }
 
-    public boolean update(Country country) {
-        return executeUpdate(String.format("UPDATE %s SET country_name = '%s', region_id = %d WHERE country_id = '%s'",
-                getTableName(), country.getName(), country.getRegion().getId(), country.getId()));
+    public boolean update(Especialty especialty) {
+        return executeUpdate(String.format("UPDATE %s SET CodeJob = %d, CodeTechnician = %d, NameSpecialty = '%s', DescriptionSpecialty = '%s'  WHERE CodeSpecialty = '%s'",
+                getTableName(), especialty.getId(), especialty.getJob(), especialty.getTechnician(), especialty.getName(), especialty.getDescription()));
     }
 
-    public boolean update(String id, String name, Region region) {
-        return update(new Country(id, name, region));
+    public boolean update(int id, Job job, Technician technician, String name, String description) {
+        return update(new Especialty(id, job, technician, name, description));
     }
 
-    public boolean delete(Country country) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE region_id = '%s'",
-                getTableName(), country.getId()));
+    public boolean delete(Especialty especialty) {
+        return executeUpdate(String.format("DELETE FROM %s WHERE CodeSpecialty = '%s'",
+                getTableName(), especialty.getId()));
     }
 
     private boolean executeUpdate(String sql) {
