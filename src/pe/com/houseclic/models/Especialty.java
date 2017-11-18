@@ -27,13 +27,13 @@ public class Especialty {
 
     public Job getJob() { return job; }
 
-    public Especialty setJob(int id) { this.Job = job; return this; }
+    public Especialty setJob(Job job) { this.job = job; return this; }
 
 //*************** DE LA RELACION CON LA  TABLA TECHNICIAN*********************************************
 
     public Technician getTechnician() { return technician; }
 
-    public Especialty setTechnician(int id) { this.Technician = technician; return this; }
+    public Especialty setTechnician(Technician technician) { this.technician = technician; return this; }
 
 //************************************************************
 
@@ -54,7 +54,7 @@ public class Especialty {
         try {
                     especialty.setId(resultSet.getInt("CodeSpecialty"))
                     .setJob(JobsEntity.findById(ResultSet.getInt("job_id")));
-                    .setTechnician(TechniciansEntity.findById(ResultSet.getInt("technician_id")));
+                    .setTechnician(TechnicianEntity.findById(ResultSet.getInt("technician_id")));
                     .setName(resultSet.getString("NameSpecialty"));
                     .setDescription(resultSet.getString("DescriptionSpecialty"));
         } catch (SQLException e) {

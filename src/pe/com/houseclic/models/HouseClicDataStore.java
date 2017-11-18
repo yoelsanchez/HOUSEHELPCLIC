@@ -9,13 +9,13 @@ public class HouseClicDataStore {
     private JobsEntity jobsEntity;
     private EspecialtiesEntity especialtiesEntity;
     private TechnicianEntity technicianEntity;
-    private DetailScheduleEntity detailScheduleEntity; //FALTA
-    private ScheduleEntity scheduleEntity; //FALTA
-    private AnswerEntity answerEntity; //FALTA
-    private ContractEntity contractEntity; //FALTA
-    private ClientEntity clientEntity; //FALTA
-    private QuotationEntity quotationEntity; //FALTA
-    private TypeQuotationEntity typeQuotationEntity; //FALTA
+    private DetailScheduleEntity detailScheduleEntity;
+    private ScheduleEntity scheduleEntity;
+    private AnswerEntity answerEntity;
+    private ContractEntity contractEntity;
+    private ClientEntity clientEntity;
+    private QuotationEntity quotationEntity;
+    private TypeQuotationEntity typeQuotationEntity;
 
 //***********************************************************************************************
 
@@ -63,6 +63,61 @@ public class HouseClicDataStore {
         return technicianEntity;
     }
 
+    private DetailScheduleEntity getDetailScheduleEntity() {
+        if(detailScheduleEntity == null) {
+            detailScheduleEntity = new DetailScheduleEntity();
+            detailScheduleEntity.setConnection(connection);
+        }
+        return detailScheduleEntity;
+    }
+
+    private ScheduleEntity getScheduleEntity() {
+        if(scheduleEntity == null) {
+            scheduleEntity = new ScheduleEntity();
+            scheduleEntity.setConnection(connection);
+        }
+        return scheduleEntity;
+    }
+
+    private AnswerEntity getAnswerEntity() {
+        if(answerEntity == null) {
+            answerEntity = new AnswerEntity();
+            answerEntity.setConnection(connection);
+        }
+        return answerEntity;
+    }
+
+    private ContractEntity getContractEntity() {
+        if(contractEntity == null) {
+            contractEntity = new ContractEntity();
+            contractEntity.setConnection(connection);
+        }
+        return answerEntity;
+    }
+
+    private ClientEntity getClientEntity() {
+        if(clientEntity == null) {
+            clientEntity = new ClientEntity();
+            clientEntity.setConnection(connection);
+        }
+        return clientEntity;
+    }
+
+    private QuotationEntity getQuotationEntity() {
+        if(quotationEntity == null) {
+            quotationEntity = new QuotationEntity();
+            quotationEntity.setConnection(connection);
+        }
+        return quotationEntity;
+    }
+
+    private TypeQuotationEntity getTypeQuotationEntity() {
+        if(typeQuotationEntity == null) {
+            typeQuotationEntity = new TypeQuotationEntity();
+            typeQuotationEntity.setConnection(connection);
+        }
+        return typeQuotationEntity;
+    }
 //****************************************************************************************
 
     // DISTRITO - DISTRICT
@@ -72,6 +127,7 @@ public class HouseClicDataStore {
                 null :
                 getDistrictsEntity().findById(id);
     }
+
     public List<District> findAllDistricts (){
         return getConnection() == null ? null : getDistrictsEntity().findAll();
     }
@@ -122,64 +178,64 @@ public class HouseClicDataStore {
                 false :
                 getJobsEntity().update(job);
     }
-}
 
-    // ESPECIALIDAD - ESPECIALTIES********************************************************************
+    // ESPECIALIDAD - ESPECIALTY********************************************************************
 
-    public Especialty findEspeciltyById(String id) {
+    public Especialty findEspecialtyById(String id) {
         return getConnection() == null ?
                 null :
                 getEspecialtiesEntity().findById(id, getJobsEntity(), getTechnicianEntity());
     }
+
     public List<Especialty> findAllEspecialties (){
         return getConnection() == null ? null : getEspecialtiesEntity().findAll(getEspecialtiesEntity());
     }
 
-    public Especialty createEspecialty (String name){
+    // TECNICO - TECHNICIAN ****************************************************************
+
+    public Technician findTechnicianById(String id) {
+        return getConnection() == null ?
+        null :
+        getTechnicianEntity().findById(id, getDistrictsEntity(), getDetailScheduleEntity(), getContractEntity(), getTypeQuotation ());
+        }
+
+    public List<Technician> findAllTechnicians (){
+        return getConnection() == null ? null : getTechnicianEntity().findAll(getTechnicianEntity());
+        }
+
+    //  DETALLE HORARIO - DETAILSCHEDULE ****************************************************************
+
+    public DetailSchedule findDetailScheduleById(String id) {
         return getConnection() == null ?
                 null :
-                getEspecialtiesEntity().create(name);
+                getDetailScheduleEntity().findById(id, getTechnicianEntity(), getScheduleEntity());
     }
 
-    public boolean eraseEspecialty (Especialty especialty) {
-        return getConnection() == null ?
-                false :
-                getEspecialtiesEntity().erase(especialty);
+    public List<DetailSchedule> findAllDetailSchedules (){
+        return getConnection() == null ? null : getDetailScheduleEntity().findAll(getDetailScheduleEntity());
     }
 
-    public boolean updateEspecialty(Especialty especialty) {
+    // HORARIO - SCHEDULE *******************************************************************************
+
+    public Schedule findScheduleyId(String id) {
         return getConnection() == null ?
-                false :
-                getEspecialtiesEntity().update(especialty);
+                null :
+                getScheduleEntity().findById(id, getQuotationEntity());
+    }
+
+    public List<Schedule> findAllSchedules (){
+        return getConnection() == null ? null : getScheduleEntity().findAll(getScheduleEntity());
+    }
+
+    // DETALLE RESPUESTA - ANSWER *******************************************************************************
+
+    public Answer findAnswerById(String id) {
+        return getConnection() == null ?
+                null :
+                getAnswerEntity().findById(id, getAnswerEntity());
+    }
+
+    public List<Answer> findAllAnswers (){
+        return getConnection() == null ? null : getAnswerEntity().findAll(getAnswerEntity());
     }
 }
-
-// TECNICO - TECHNICIAN ****************************************************************
-
-public Technician findTechnicianById(String id) {
-        return getConnection() == null ?
-        null :
-        getTechnicianEntity().findById(id, getJobsEntity, getTechnicianEntity());
-        }
-public List<Especialty> findAllEspecialties (){
-        return getConnection() == null ? null : getEspecialtiesEntity().findAll();
-        }
-
-public TechnicianEntity createEspecialty (String name){
-        return getConnection() == null ?
-        null :
-        getEspecialtiesEntity().create(name);
-        }
-
-public boolean eraseEspecialty (TechnicianEntity especialty) {
-        return getConnection() == null ?
-        false :
-        getEspecialtiesEntity().erase(especialty);
-        }
-
-public boolean updateEspecialty(Especialty especialty) {
-        return getConnection() == null ?
-        false :
-        getEspecialtiesEntity().update(especialty);
-        }
-        }
