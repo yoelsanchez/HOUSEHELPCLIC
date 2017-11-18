@@ -232,10 +232,59 @@ public class HouseClicDataStore {
     public Answer findAnswerById(String id) {
         return getConnection() == null ?
                 null :
-                getAnswerEntity().findById(id, getAnswerEntity());
+                getAnswerEntity().findById(id, getTechnicianEntity(), getClientEntity());
     }
 
     public List<Answer> findAllAnswers (){
         return getConnection() == null ? null : getAnswerEntity().findAll(getAnswerEntity());
     }
+
+    // CONTRATO - CONTRACT **************************************************************************************
+
+    public Contract findContractById(String id) {
+        return getConnection() == null ?
+                null :
+                getContractEntity().findById(id);
+    }
+
+    public List<Contract> findAllContract (){
+        return getConnection() == null ? null : getContractEntity().findAll(getContractEntity());
+    }
+
+    // CLIENTE - CLIENT **************************************************************************************
+
+    public Client findClientById(String id) {
+        return getConnection() == null ?
+                null :
+                getClientEntity().findById(id, getDistrictsEntity(), getContractEntity(), getTypeQuotationEntity());
+    }
+
+    public List<Client> findAllClient (){
+        return getConnection() == null ? null : getClientEntity().findAll(getClientEntity());
+    }
+
+   // COTIZACION - QUOATATION **************************************************************************************
+
+    public Quotation findQuotationById(String id) {
+        return getConnection() == null ?
+                null :
+                getQuotationEntity().findById(id, getAnswerEntity());
+    }
+
+    public List<Quotation> findAllQuotation (){
+        return getConnection() == null ? null : getQuotationEntity().findAll(getQuotationEntity());
+    }
+
+    // TYPO DE COTIZACION - TYPEQUOTATION **************************************************************************************
+
+    public TypeQuotation findTypeQuotationById(String id) {
+        return getConnection() == null ?
+                null :
+                getTypeQuotationEntity().findById(id, getQuotationEntity());
+    }
+
+    public List<TypeQuotation> findAllTypeQuotation (){
+        return getConnection() == null ? null : getTypeQuotationEntity().findAll(getTypeQuotationEntity());
+    }
+
 }
