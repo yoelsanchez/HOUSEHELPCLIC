@@ -53,7 +53,7 @@ public class TechnicianEntity extends BaseEntity {
     }
 
     public boolean update(Technician technician) {
-        return executeUpdate(String.format("UPDATE %s SET CodeDistrict = %d, CodeDetailSchedule = %d, CodeContract = %d, CodeTypeQuotation = %d, CodeTechnician = %d, NameTech = '%s', LastNameTech = '%s', DniTech = '%s', AgeTech = '%s', CellPhoneTech = '%s', DescriptionTech = '%s', PhotoTech = '%s', PasswordTech = '%s' WHERE CodeTechnician = %d",
+        return executeUpdate(String.format("UPDATE %s SET CodeDistrict = %d, CodeDetailSchedule = %d, CodeContract = %d, CodeTypeQuotation = %d, NameTech = '%s', LastNameTech = '%s', DniTech = '%s', AgeTech = '%s', CellPhoneTech = '%s', DescriptionTech = '%s', PhotoTech = '%s', PasswordTech = '%s' WHERE CodeTechnician = %d",
                 getTableName(), technician.getId(), technician.getDistrict(), technician.getDetailSchedule(), technician.getContract(), technician.getTypeQuotation(), technician.getName(), technician.getLastname(), technician.getDni(), technician.getAge(), technician.getCell(), technician.getDescription(), technician.getPhoto(), technician.getPass()));
     }
 

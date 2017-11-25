@@ -208,7 +208,7 @@ public class HouseClicDataStore {
     public DetailSchedule findDetailScheduleById(String id) {
         return getConnection() == null ?
                 null :
-                getDetailScheduleEntity().findById(id, getTechnicianEntity(), getScheduleEntity());
+                getDetailScheduleEntity().findById(id, getDetailScheduleEntity());
     }
 
     public List<DetailSchedule> findAllDetailSchedules (){

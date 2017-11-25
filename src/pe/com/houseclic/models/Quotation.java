@@ -109,17 +109,17 @@ public class Quotation {
         Quotation quotation = new Quotation();
         try {
             quotation.setId(resultSet.getInt("CodeQuotation"))
-                    .setAnswer(AnswerEntity.findById(ResultSet.getInt("CodeAnswer")));
-                    .setTitleSubject(resultSet.getString("TitleSubject"));
+                    .setAnswer(AnswerEntity.findById(ResultSet.getInt("CodeAnswer")))
+                    .setTitleSubject(resultSet.getString("TitleSubject"))
                     .setDetailSubject(resultSet.getString("DetailSubject"))
-                    .setPhotoSubject(resultSet.getString("PhotoSubject"));
-                    .setVisitCost(resultSet.getString("VisitCost"));
-                    .setAddressSubject(resultSet.getString("AddressSubject"));
-                    .setStartSubject(resultSet.getString("StartSubject"));
-                    .setEndSubject(resultSet.getString("EndSubject"));
-                    .setDateSubject(resultSet.getString("DateSubject"));
-                    .setStateQuotation(resultSet.getString("StateQuotation"));
-                    .setCountAnswerQuotation(resultSet.getString("CountAnswerQuotation"))
+                    .setPhotoSubject(resultSet.getString("PhotoSubject"))
+                    .setVisitCost(resultSet.getString("VisitCost"))
+                    .setAddressSubject(resultSet.getString("AddressSubject"))
+                    .setStartSubject(resultSet.getString("StartSubject"))
+                    .setEndSubject(resultSet.getString("EndSubject"))
+                    .setDateSubject(resultSet.getString("DateSubject"))
+                    .setStateQuotation(resultSet.getString("StateQuotation"))
+                    .setCountAnswerQuotation(resultSet.getString("CountAnswerQuotation"));
 
             return quotation;
         } catch (SQLException e) {

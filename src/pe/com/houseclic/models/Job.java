@@ -12,9 +12,6 @@ public class Job {
         this.name = name;
     }
 
-    public Job() {
-    }
-
     public int getId() { return id; }
 
     public Job setId(int id) {

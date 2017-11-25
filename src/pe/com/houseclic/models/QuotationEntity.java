@@ -1,8 +1,5 @@
 package pe.com.houseclic.models;
 
-        import com.oracle.wls.shaded.org.apache.xpath.operations.Quo;
-        import javafx.util.converter.ShortStringConverter;
-
         import java.sql.ResultSet;
         import java.sql.SQLException;
         import java.util.ArrayList;
@@ -51,22 +48,22 @@ public class QuotationEntity extends BaseEntity {
                 getTableName(), quotation.getId(), quotation.getAnswer(), quotation.getTitlesubject(), quotation.getDetailsubject(), quotation.getPhotosubject(), quotation.getVisitcost(), quotation.getAddresssubject()));
     }
 
-    public boolean create(int id, Answer answer, String titlesubject, String ) {
-        return create(new Technician(id, district, detailSchedule, contract, typeQuotation, name, lastname, dni, age, cell, description, photo, pass));
+    public boolean create(int id, Answer answer, String titlesubject, String detailsubject, String photosubject, String visitcost, String addresssubject, String startsubject, String endsubject, String datesubject, String statequotation, String countanswerquotation) {
+        return create(new Quotation(id, answer, titlesubject, detailsubject, photosubject, visitcost, addresssubject, startsubject, endsubject, datesubject, statequotation, countanswerquotation));
     }
 
-    public boolean update(Technician technician) {
-        return executeUpdate(String.format("UPDATE %s SET CodeDistrict = %d, CodeDetailSchedule = %d, CodeContract = %d, CodeTypeQuotation = %d, CodeTechnician = %d, NameTech = '%s', LastNameTech = '%s', DniTech = '%s', AgeTech = '%s', CellPhoneTech = '%s', DescriptionTech = '%s', PhotoTech = '%s', PasswordTech = '%s' WHERE CodeTechnician = %d",
-                getTableName(), technician.getId(), technician.getDistrict(), technician.getDetailSchedule(), technician.getContract(), technician.getTypeQuotation(), technician.getName(), technician.getLastname(), technician.getDni(), technician.getAge(), technician.getCell(), technician.getDescription(), technician.getPhoto(), technician.getPass()));
+    public boolean update(Quotation quotation) {
+        return executeUpdate(String.format("UPDATE %s SET CodeAnswer = %d, TitleSubject = '%s', DetailSubject = '%s', PhotoSubject = '%s', VisitCost = '%s', AddressSubject = '%s', StartSubject = '%s', EndSubject = '%s', DateSubject = '%s', StateSubject = '%s', CountAnswerQuotation WHERE CodeQuotation = %d",
+                getTableName(), quotation.getId(), quotation.getAnswer(), quotation.getTitlesubject(), quotation.getDetailsubject(), quotation.getPhotosubject(), quotation.getVisitcost(), quotation.getAddresssubject(), quotation.getStartsubject(), quotation.getEndsubject(), quotation.getDatesubject(), quotation.getStartsubject(), quotation.getCountanswerquotation()));
     }
 
-    public boolean update(int id, District district, DetailSchedule detailSchedule, Contract contract, TypeQuotation typeQuotation, String name, String lastname, String dni, String age, String cell, String description, String photo, String pass) {
-        return update(new Technician(id, district, detailSchedule, contract, typeQuotation, name, lastname, dni, age, cell, description, photo, pass));
+    public boolean update(int id, Answer answer, String titlesubject, String detailsubject, String photosubject, String visitcost, String addresssubject, String startsubject, String endsubject, String datesubject, String statequotation, String countanswerquotation) {
+        return update(new Quotation(id, answer, titlesubject, detailsubject, photosubject, visitcost, addresssubject, startsubject, endsubject, datesubject, statequotation, countanswerquotation));
     }
 
-    public boolean delete(Technician technician) {
-        return executeUpdate(String.format("DELETE FROM %s WHERE CodeTechnician = '%s'",
-                getTableName(), technician.getId()));
+    public boolean delete(Quotation quotation) {
+        return executeUpdate(String.format("DELETE FROM %s WHERE CodeQuotation = '%s'",
+                getTableName(), quotation.getId()));
     }
 
     private boolean executeUpdate(String sql) {
