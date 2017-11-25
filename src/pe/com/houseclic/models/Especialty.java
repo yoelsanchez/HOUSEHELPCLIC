@@ -49,7 +49,7 @@ public class Especialty {
 
 //************************************************************
 
-    public static Especialty from(ResultSet resultSet, JobsEntity jobsEntity) {
+    public static Especialty from(ResultSet resultSet, JobsEntity jobsEntity, TechnicianEntity technicianEntity) {
         Especialty especialty = new Especialty();
         try {
                     especialty.setId(resultSet.getInt("CodeSpecialty"))
@@ -57,6 +57,7 @@ public class Especialty {
                     .setTechnician(TechnicianEntity.findById(ResultSet.getInt("CodeTechnician")));
                     .setName(resultSet.getString("NameSpecialty"));
                     .setDescription(resultSet.getString("DescriptionSpecialty"));
+                    return especialty;
         } catch (SQLException e) {
             e.printStackTrace();
         }

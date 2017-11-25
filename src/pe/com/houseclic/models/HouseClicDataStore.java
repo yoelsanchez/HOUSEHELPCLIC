@@ -92,7 +92,7 @@ public class HouseClicDataStore {
             contractEntity = new ContractEntity();
             contractEntity.setConnection(connection);
         }
-        return answerEntity;
+        return contractEntity;
     }
 
     private ClientEntity getClientEntity() {
@@ -188,7 +188,7 @@ public class HouseClicDataStore {
     }
 
     public List<Especialty> findAllEspecialties (){
-        return getConnection() == null ? null : getEspecialtiesEntity().findAll(getEspecialtiesEntity());
+        return getConnection() == null ? null : getEspecialtiesEntity().findAll(getJobsEntity(), getTechnicianEntity());
     }
 
     // TECNICO - TECHNICIAN ****************************************************************
