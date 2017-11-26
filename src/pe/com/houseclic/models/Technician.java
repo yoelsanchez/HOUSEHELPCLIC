@@ -18,7 +18,7 @@ public class Technician {
     private String photo;
     private String pass;
 
-    public Especialty(int id, District district, DetailSchedule detailSchedule, Contract contract, TypeQuotation typeQuotation, String name, String lastname, String dni, String age, String cell, String description, String photo, String pass) {
+    public Technician(int id, District district, DetailSchedule detailSchedule, Contract contract, TypeQuotation typeQuotation, String name, String lastname, String dni, String age, String cell, String description, String photo, String pass) {
         this.setId(id);
         this.setDistrict(district);
         this.setDetailSchedule(detailSchedule);
@@ -43,26 +43,26 @@ public class Technician {
 
     public District getDistrict() { return district; }
 
-    public District setDistrict(District district) { this.district = district; return this; }
+    public Technician setDistrict(District district) { this.district = district; return this; }
 
 //*************** DE LA RELACION CON LA  TABLA DETAILSCHEDULE*******************************************************************
 
     public DetailSchedule getDetailSchedule() { return detailSchedule; }
 
-    public DetailSchedule setDetailSchedule(DetailSchedule detailSchedule) { this.detailSchedule = detailSchedule; return this; }
+    public Technician setDetailSchedule(DetailSchedule detailSchedule) { this.detailSchedule = detailSchedule; return this; }
 
 
 //*************** DE LA RELACION CON LA  TABLA CONTRACT**************************************************************************
 
     public Contract getContract() { return contract; }
 
-    public Contract setContract(Contract contract) { this.contract = contract; return this; }
+    public Technician setContract(Contract contract) { this.contract = contract; return this; }
 
 //**************** DE LA TABLA DE TYPEQUOTATION*********************************************************************************
 
     public TypeQuotation getTypeQuotation() { return typeQuotation; }
 
-    public TypeQuotation setTypeQuotation(TypeQuotation typeQuotation) { this.typeQuotation = typeQuotation; return this; }
+    public Technician setTypeQuotation(TypeQuotation typeQuotation) { this.typeQuotation = typeQuotation; return this; }
 
 //*******************************************************************************************************************************
 
@@ -118,17 +118,17 @@ public String getDni() { return dni; }
         Technician technician = new Technician();
         try {
             technician.setId(resultSet.getInt("CodeTechnician"))
-                    .setDistrict(DistrictsEntity.findById(ResultSet.getInt("District_CodeDistrict")));
-                    .setDetailSchedule(DetailSchedule.findById(ResultSet.getInt("CodeDetailSchedule")));
+                    .setDistrict(DistrictsEntity.findById(ResultSet.getInt("District_CodeDistrict")))
+                    .setDetailSchedule(DetailSchedule.findById(ResultSet.getInt("CodeDetailSchedule")))
                     .setContract(Contract.findById(ResultSet.getInt("CodeContract")))
-                    .setTypeQuotation(TypeQuotation.findById(ResultSet.getInt("CodeTypeQuotation")));
-                    .setName(resultSet.getString("NameTech"));
-                    .setLastname(resultSet.getString("LastNameTech"));
-                    .setDni(resultSet.getString("DniTech"));
-                    .setAge(resultSet.getString("LastAge"));
-                    .setCell(resultSet.getString("CellPhoneTech"));
-                    .setDescription(resultSet.getString("DescriptionSpecialty"));
-                    .setPhoto(resultSet.getString("PhotoTech"));
+                    .setTypeQuotation(TypeQuotation.findById(ResultSet.getInt("CodeTypeQuotation")))
+                    .setName(resultSet.getString("NameTech"))
+                    .setLastname(resultSet.getString("LastNameTech"))
+                    .setDni(resultSet.getString("DniTech"))
+                    .setAge(resultSet.getString("LastAge"))
+                    .setCell(resultSet.getString("CellPhoneTech"))
+                    .setDescription(resultSet.getString("DescriptionSpecialty"))
+                    .setPhoto(resultSet.getString("PhotoTech"))
                     .setPass(resultSet.getString("PasswordTech"));
 
                     return technician;

@@ -9,7 +9,7 @@ public class Schedule {
     private String frecuencySchedule;
     private String daysSchedule;
 
-    public Especialty(int id, DetailSchedule detailSchedule, String frecuencySchedule, String daysSchedule) {
+    public Schedule(int id, DetailSchedule detailSchedule, String frecuencySchedule, String daysSchedule) {
         this.setId(id);
         this.setDetailSchedule(detailSchedule);
         this.setFrecuencySchedule(frecuencySchedule);
@@ -32,7 +32,7 @@ public class Schedule {
         return detailSchedule;
     }
 
-    public DetailSchedule setDetailSchedule(DetailSchedule detailSchedule) {
+    public Schedule setDetailSchedule(DetailSchedule detailSchedule) {
         this.detailSchedule = detailSchedule;
         return this;
     }
@@ -65,8 +65,8 @@ public class Schedule {
         Schedule schedule = new Schedule();
         try {
             schedule.setId(resultSet.getInt("CodeTechnician"))
-                    .setDetailSchedule(DetailSchedule.findById(ResultSet.getInt("CodeDetailSchedule")));
-                    .setFrecuencySchedule(resultSet.getString("FrecuencySchedule"));
+                    .setDetailSchedule(DetailSchedule.findById(ResultSet.getInt("CodeDetailSchedule")))
+                    .setFrecuencySchedule(resultSet.getString("FrecuencySchedule"))
                     .setDaysSchedule(resultSet.getString("DaysSchedule"));
 
             return schedule;

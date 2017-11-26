@@ -49,7 +49,7 @@ public class ScheduleEntity extends BaseEntity {
     }
 
     public boolean create(int id, DetailSchedule detailSchedule, String frecuencySchedule, String daysSchedule) {
-        return create(new Schedule(id, detailSchedule, frecuencySchedule, daysSchedule);
+        return create(new Schedule(id, detailSchedule, frecuencySchedule, daysSchedule));
     }
 
     public boolean update(Schedule schedule) {

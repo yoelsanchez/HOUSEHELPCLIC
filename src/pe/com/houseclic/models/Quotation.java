@@ -41,7 +41,7 @@ public class Quotation {
 
     public Answer getAnswer() { return answer; }
 
-    public Answer setAnswer(Answer answer) { this.answer = answer; return this; }
+    public Quotation setAnswer(Answer answer) { this.answer = answer; return this; }
 
 //*******************************************************************************************************************************
 

@@ -77,12 +77,12 @@ public class Contract {
         Contract contract = new Contract();
         try {
             contract.setId(resultSet.getInt("CodeCotract"))
-                    .setDateContract(resultSet.getString("NameTech"));
-                    .setTotalCostContract(resultSet.getString("TotalCostContract"));
-                    .setStateContract(resultSet.getString("StateContract"));
-                    .setAssistanceReason(resultSet.getString("AssistanceReason"));
-                    .setRatingScore(resultSet.getString("RatingScore"));
-                    .setRatingState(resultSet.getString("RatingState"));
+                    .setDateContract(resultSet.getString("NameTech"))
+                    .setTotalCostContract(resultSet.getString("TotalCostContract"))
+                    .setStateContract(resultSet.getString("StateContract"))
+                    .setAssistanceReason(resultSet.getString("AssistanceReason"))
+                    .setRatingScore(resultSet.getString("RatingScore"))
+                    .setRatingState(resultSet.getString("RatingState"))
                     .setRatingCommentary(resultSet.getString("RatingCommentary"));
 
             return contract;

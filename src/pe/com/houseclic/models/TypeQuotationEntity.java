@@ -1,6 +1,5 @@
 package pe.com.houseclic.models;
 
-        import java.lang.reflect.Type;
         import java.sql.ResultSet;
         import java.sql.SQLException;
         import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class TypeQuotationEntity extends BaseEntity {
 
     //***********************************************************************************************************
 
-    public List<TypeQuotation> findAll(QuotationEntity) {
+    public List<TypeQuotation> findAll(QuotationEntity quotationEntity) {
         return findByCriteria("", quotationEntity);
     }
 
@@ -33,7 +32,7 @@ public class TypeQuotationEntity extends BaseEntity {
                                             .concat(criteria));
             List<TypeQuotation> typeQuotations = new ArrayList<>();
             while (rs.next())
-                typeQuotations.add(Technician.from(rs, QuotationEntity));
+                typeQuotations.add(TypeQuotation.from(rs, quotationEntity));
             return typeQuotations;
 
         } catch (SQLException e) {
@@ -49,7 +48,7 @@ public class TypeQuotationEntity extends BaseEntity {
                 getTableName(), typeQuotation.getId(), typeQuotation.getQuotation(), typeQuotation.getName(), typeQuotation.getDescription()));
     }
 
-    public boolean create(int id, quotation, String name, String description) {
+    public boolean create(int id, Quotation quotation, String name, String description) {
         return create(new TypeQuotation(id, quotation, name,description));
     }
 

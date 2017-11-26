@@ -21,12 +21,12 @@ public class DetailScheduleEntity extends BaseEntity {
 
     public DetailSchedule findByStartSchedule(String startSchedule) {
         return findByCriteria(String.format(
-                "StartSchedule = '%s'", startSchedule.get(0);
+                "StartSchedule = '%s'", startSchedule)).get(0);
     }
 
     public DetailSchedule findByEndSchedule(String endSchedule) {
         return findByCriteria(String.format(
-                "EndSchedule = '%s'", endSchedule.get(0)
+                "EndSchedule = '%s'", endSchedule)).get(0);
     }
 
     private List<DetailSchedule> findByCriteria(String criteria) {
@@ -42,7 +42,7 @@ public class DetailScheduleEntity extends BaseEntity {
                                             .concat(criteria));
             List<DetailSchedule> DetailSchedules = new ArrayList<>();
             while (rs.next())
-                DetailSchedule.add(DetailSchedule.from(rs));
+                DetailSchedules.add(DetailSchedule.from(rs));
             return DetailSchedules;
 
         } catch (SQLException e) {

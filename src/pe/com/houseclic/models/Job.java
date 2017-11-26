@@ -29,8 +29,8 @@ public class Job {
     public static Job from(ResultSet rs) {
         try {
             return (new Job())
-                    .setId(rs.getInt("CodeJob"))
-                    .setName(rs.getString("NameJob"));
+            .setId(rs.getInt("CodeJob"))
+            .setName(rs.getString("NameJob"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

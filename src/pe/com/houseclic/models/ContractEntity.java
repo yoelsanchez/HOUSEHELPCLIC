@@ -15,7 +15,7 @@ public class ContractEntity extends BaseEntity {
 
     //***********************************************************************************************************
 
-    public List<Contract> findAll() { return findByCriteria(); }
+    public List<Contract> findAll() { return findByCriteria(""); }
 
     private List<Contract> findByCriteria(String criteria) {
         try {

@@ -15,7 +15,7 @@ public class Especialty {
         this.setJob(job);
         this.setTechnician(technician);
         this.setName(name);
-        this.setDescription(description)
+        this.setDescription(description);
     }
 //************* POR CAMPO SE HACE *******************************************************
 
@@ -53,9 +53,9 @@ public class Especialty {
         Especialty especialty = new Especialty();
         try {
                     especialty.setId(resultSet.getInt("CodeSpecialty"))
-                    .setJob(JobsEntity.findById(ResultSet.getInt("CodeJob")));
-                    .setTechnician(TechnicianEntity.findById(ResultSet.getInt("CodeTechnician")));
-                    .setName(resultSet.getString("NameSpecialty"));
+                    .setJob(JobsEntity.findById(ResultSet.getInt("CodeJob")))
+                    .setTechnician(TechnicianEntity.findById(ResultSet.getInt("CodeTechnician")))
+                    .setName(resultSet.getString("NameSpecialty"))
                     .setDescription(resultSet.getString("DescriptionSpecialty"));
                     return especialty;
         } catch (SQLException e) {

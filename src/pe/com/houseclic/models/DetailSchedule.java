@@ -39,8 +39,8 @@ public class DetailSchedule {
         try {
             return (new DetailSchedule())
                     .setId(rs.getInt("CodeDetailSchedule"))
-                    .setStartSchedule(rs.getStartSchedule("StartSchedule"));
-                    .setEndSchedue(rs.getEndSchedule("EndSchedule"));
+                    .setStartSchedule(rs.getString("StartSchedule"))
+                    .setEndSchedue(rs.getString("EndSchedule"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

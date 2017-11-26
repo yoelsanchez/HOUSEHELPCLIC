@@ -9,7 +9,7 @@ public class TypeQuotation {
     private String name;
     private String description;
 
-    public Especialty(int id, Quotation quotation, String name, String description) {
+    public TypeQuotation(int id, Quotation quotation, String name, String description) {
         this.setId(id);
         this.setQuotation(quotation);
         this.setName(name);
@@ -23,9 +23,9 @@ public class TypeQuotation {
 
 //****************DE LA RELACION CON QUOTATION*****************************************************************************
 
-    public Quotation getQuotation() { return Quotation; }
+    public Quotation getQuotation() { return quotation; }
 
-    public Quotation setQuotation(Quotation quotation) { this.quotation = quotation; return this; }
+    public TypeQuotation setQuotation(Quotation quotation) { this.quotation = quotation; return this; }
 
 //*******************************************************************************************************************************
 
@@ -46,11 +46,11 @@ public class TypeQuotation {
         TypeQuotation typeQuotation = new TypeQuotation();
         try {
             typeQuotation.setId(resultSet.getInt("CodeTypeQuotation"))
-                    .setQuotation(Quotation.findById(ResultSet.getInt("CodeQuotation")));
-                    .setName(resultSet.getString("NameTypeQ"));
+                    .setQuotation(Quotation.findById(ResultSet.getInt("CodeQuotation")))
+                    .setName(resultSet.getString("NameTypeQ"))
                     .setDescription(resultSet.getString("DescriptionTypeQ"));
 
-            return TypeQuotation;
+            return typeQuotation;
         } catch (SQLException e) {
             e.printStackTrace();
         }

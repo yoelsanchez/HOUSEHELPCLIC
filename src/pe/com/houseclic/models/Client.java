@@ -37,7 +37,7 @@ public class Client {
 
 //****************DE LA RELACION CON TABLA DISTRICT*****************************************************************************
 
-    public Client getDistrict() { return district; }
+    public District getDistrict() { return district; }
 
     public Client setDistrict(District district) { this.district = district; return this; }
 
@@ -45,13 +45,13 @@ public class Client {
 
     public Contract getContract() { return contract; }
 
-    public Contract setContract(Contract contract) { this.contract = contract; return this; }
+    public Client setContract(Contract contract) { this.contract = contract; return this; }
 
 //**************** DE LA TABLA DE TYPEQUOTATION*********************************************************************************
 
     public TypeQuotation getTypeQuotation() { return typeQuotation; }
 
-    public TypeQuotation setTypeQuotation(TypeQuotation typeQuotation) { this.typeQuotation = typeQuotation; return this; }
+    public Client setTypeQuotation(TypeQuotation typeQuotation) { this.typeQuotation = typeQuotation; return this; }
 
 //*******************************************************************************************************************************
 
@@ -100,19 +100,19 @@ public class Client {
     public static Client from(ResultSet resultSet, DistrictsEntity districtsEntity, ContractEntity contractEntity, TypeQuotationEntity typeQuotationEntity) {
         Client client = new Client();
         try {
-            client.setId(resultSet.getInt("CodeDistrict"))
-                    .setDistrict(DistrictsEntity.findById(ResultSet.getInt("CodeDistrict")));
+            client.setId(resultSet.getInt("CodeClient"))
+                    .setDistrict(DistrictsEntity.findById(ResultSet.getInt("CodeDistrict")))
                     .setContract(Contract.findById(ResultSet.getInt("CodeContract")))
-                    .setTypeQuotation(TypeQuotation.findById(ResultSet.getInt("CodeTypeQuotation")));
-                    .setNameClient(resultSet.getString("NameClient"));
-                    .setLastNameClient(resultSet.getString("LastNameClient"));
-                    .setAgeClient(resultSet.getString("AgeClient"));
-                    .setCellPhoneClient(resultSet.getString("CellPhoneClient"));
-                    .setAddressClient(resultSet.getString("AddressClient"));
-                    .setPasswordClient(resultSet.getString("PasswordClient"));
+                    .setTypeQuotation(TypeQuotation.findById(ResultSet.getInt("CodeTypeQuotation")))
+                    .setNameClient(resultSet.getString("NameClient"))
+                    .setLastNameClient(resultSet.getString("LastNameClient"))
+                    .setAgeClient(resultSet.getString("AgeClient"))
+                    .setCellPhoneClient(resultSet.getString("CellPhoneClient"))
+                    .setAddressClient(resultSet.getString("AddressClient"))
+                    .setPasswordClient(resultSet.getString("PasswordClient"))
                     .setPhotoClient(resultSet.getString("PhotoClient"));
 
-            return Client;
+            return client;
         } catch (SQLException e) {
             e.printStackTrace();
         }

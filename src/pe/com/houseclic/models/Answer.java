@@ -2,7 +2,6 @@ package pe.com.houseclic.models;
 
         import java.sql.ResultSet;
         import java.sql.SQLException;
-        import java.util.AbstractQueue;
 
 public class Answer {
     private int id;
@@ -12,7 +11,7 @@ public class Answer {
     private String commentAnswer;
     private String priceAnswer;
 
-    public Quotation(int id, Technician technician, Client client, String dateAnswer, String commentAnswer, String priceAnswer) {
+    public Answer(int id, Technician technician, Client client, String dateAnswer, String commentAnswer, String priceAnswer) {
         this.setId(id);
         this.setTechnician(technician);
         this.setClient(client);
@@ -30,13 +29,13 @@ public class Answer {
 
     public Technician getTechnician() { return technician; }
 
-    public Technician setTechnician(Technician technician) { this.technician = technician; return this; }
+    public Answer setTechnician(Technician technician) { this.technician = technician; return this; }
 
 //****************DE LA RELACION CON TABLA CLIENT*****************************************************************************
 
     public Client getClient() { return client; }
 
-    public Client setClient (Client client) { this.client = client; return this; }
+    public Answer setClient (Client client) { this.client = client; return this; }
 
 //*******************************************************************************************************************************
 

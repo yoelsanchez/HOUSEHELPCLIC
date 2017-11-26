@@ -19,7 +19,7 @@ public class EspecialtiesEntity extends BaseEntity {
         return findByCriteria("",  jobsEntity, technicianEntity);
     }
 
-    private List<Especialty> findByCriteria(String criteria, JobsEntity jobsEntity, Technician technician) {
+    private List<Especialty> findByCriteria(String criteria, JobsEntity jobsEntity, TechnicianEntity technicianEntity) {
         try {
 
             ResultSet rs = getConnection()
@@ -32,7 +32,7 @@ public class EspecialtiesEntity extends BaseEntity {
                                             .concat(criteria));
             List<Especialty> especialties = new ArrayList<>();
             while (rs.next())
-                especialties.add(Especialty.from(rs, jobsEntity, technician));
+                especialties.add(Especialty.from(rs, jobsEntity, technicianEntity));
             return especialties;
 
         } catch (SQLException e) {
